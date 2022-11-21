@@ -1,0 +1,32 @@
+{
+  "PRODUCT": {
+    "name": "PRODUCT",
+    "url": "#",
+    "order": 0
+  },
+  "DOCS": {
+    "name": "DOCS",
+    "url": "#",
+    "order": 1
+  },
+  "PRICING": {
+    "name": "PRICING",
+    "url": "#",
+    "order": 2
+  },
+  "CUSTOMERS": {
+    "name": "CUSTOMERS",
+    "url": "#",
+    "order": 3
+  },
+  "ABOUT": {
+    "name": "ABOUT",
+    "url": "#",
+    "order": 4
+  },
+  "BLOG": {
+    "name": "BLOG",
+    "url": "#",
+    "order": 5
+  }
+}

@@ -1,0 +1,352 @@
+html {
+  height: 100%;
+  line-height: 1.15;
+  font-size: clamp(0.9rem, 2.5vw, 16px);
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+
+  *::selection {
+    background: #724eef;
+    color: white;
+  }
+}
+
+.smaller-text {
+  font-size: 1rem;
+}
+
+.larger-text {
+  font-size: 1.25rem;
+}
+
+.semibold-text {
+  font-weight: 600;
+}
+
+// Create a grid of 2 rows and 2 columns
+// 3 rows and 1 column on mobile
+.primary-container {
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: 125px calc(100% - 125px);
+  grid-template-rows: 1fr auto;
+  grid-template-areas: "nav content" "footer footer";
+
+  @media screen and (max-width: 575px) {
+    grid-template-columns: 100%;
+    grid-template-rows: 75px 1fr auto;
+    grid-template-areas: "nav" "content" "footer";
+  }
+}
+
+#nav-border {
+  grid-area: nav;
+}
+
+#content {
+  grid-area: content;
+}
+
+#footer {
+  grid-area: footer;
+}
+
+.homepage-container {
+  // Containers fill width
+  &.container,
+  .container {
+    @media screen and (max-width: 1200px) {
+      max-width: 100%;
+    }
+  }
+
+  // Body links
+  a {
+    transition: 0.25s ease;
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 1px solid;
+  }
+
+  a.purple-link,
+  .text-purple {
+    color: #724eef;
+  }
+
+  a.green-link,
+  .text-green {
+    color: #14d071;
+  }
+
+  a.red-link,
+  .text-red {
+    color: #ff635a;
+  }
+
+  // Header card with h1, subheader, CTA
+  .card-primary {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .headline-container {
+      @media screen and (max-width: 991px) {
+        text-align: center;
+      }
+    }
+
+    .headline-container > * {
+      @media screen and (max-width: 991px) {
+        display: inline-block;
+      }
+    }
+
+    .try-free-container {
+      @media screen and (max-width: 991px) {
+        padding-top: 1.5rem;
+      }
+
+      .btn-try-free {
+        transition: 0.5s ease;
+        width: 100%;
+        border: 3px solid #724eef;
+        color: #724eef;
+        font-weight: 600;
+        font-size: 125%;
+        background: #ffffff;
+
+        &:hover {
+          color: white;
+          background-color: #724eef;
+        }
+
+      }
+    }
+  }
+
+  // Price comparisons container
+  .container-comparison {
+    background-color: #f5f5f5;
+
+    ul {
+      padding-inline-start: 20px;
+      list-style: none;
+
+      li::before {
+        content: "-";
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+        font-weight: 600;
+      }
+    }
+
+    .card-comparison-container {
+      transition: all 0.5s ease-out;
+
+      &:hover {
+        box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    .card-comparison-container a {
+      text-decoration: none;
+    }
+
+    .border-comparison {
+      border-left: 1px solid #e4e4e4;
+      border-right: 1px solid #e4e4e4;
+
+      @media screen and (max-width: 575px) {
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid #e4e4e4;
+        border-bottom: 1px solid #e4e4e4;
+      }
+    }
+
+    .card-comparison {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .price-tag {
+        font-size: 2.25rem;
+        font-weight: bold;
+      }
+    }
+  }
+
+  // Define 2 card columns
+  & .card-columns {
+    width: 100%;
+    column-count: 2;
+
+    // Switch to 1 column for the cards, change display to reorder cards (feature cards & observability on top)
+    @media screen and (max-width: 991px) {
+      column-count: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    // Link underline animation for 3 Features: APM, Logs, and Infrastructure
+    & a.card {
+      transition: all 1.25s ease-in-out;
+
+      &:hover {
+        border: 1px solid;
+        padding-bottom: 0;
+        background: #724eef;
+      }
+    }
+
+    // Order 3 Features at top of 1 column flexbox
+    & .card-apm,
+    .card-infrastructure,
+    .card-logs,
+    .card-observability {
+      order: -1;
+    }
+
+    & .card {
+      border-radius: 0;
+
+      // 3 Feature cards
+      &.card-apm,
+      &.card-logs,
+      &.card-infrastructure {
+        transition: 1.25s;
+        height: 200px;
+        color: white;
+
+        .card-body {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+          width: 75%;
+          height: 100%;
+          margin: 0 auto;
+        }
+
+        .card-title {
+          font-size: 1.25rem;
+          font-weight: 400;
+          line-height: 150%;
+        }
+      }
+
+      // Larger card with text & image
+      &.card-observability {
+        .card-title {
+          font-size: 1.5rem;
+        }
+
+        .observability-container {
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      // Customers cards
+      & .customers-first-squares {
+        // Mobile - cards form 1 row flex
+        @media screen and (max-width: 575px) {
+          display: flex;
+          height: 100%;
+        }
+      }
+
+      & .card-square {
+        transition: 1.25s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 100%;
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        // Square cards by filling row height
+        &:after {
+          content: "";
+          display: block;
+          padding-bottom: 100%;
+        }
+
+        & img {
+          max-width: 100px;
+
+          @media screen and (max-width: 575px) {
+            width: 50%;
+          }
+        }
+      }
+
+      //Card styles
+
+      &.card-apm {
+        background: #14d071 url("/images/apm-bg.png") no-repeat;
+        background-size: auto;
+      }
+
+      &.card-logs {
+        background: #ff635a url("/images/logs-bg.png") no-repeat;
+        background-size: auto;
+      }
+
+      &.card-infrastructure {
+        background: #2b2aa7 url("/images/infra-bg.png") no-repeat;
+        background-size: auto;
+      }
+
+      &.card-adroll,
+      &.card-observability {
+        background-color: #f5f5f5;
+      }
+
+      & .card-airbnb,
+      .card-peloton {
+        height: 50%;
+      }
+
+      & .card-airbnb {
+        background-color: #ff5a5f;
+      }
+
+      & .card-peloton,
+      .card-whole-foods {
+        background-color: #000000;
+      }
+
+      & .card-evernote {
+        background-color: #292929;
+      }
+
+      & .card-samsung {
+        background-color: #1428a0;
+      }
+
+      & .card-nginx {
+        background-color: #00aa4e;
+      }
+
+      & .card-pagerduty {
+        background-color: #5dbd5f;
+      }
+
+      & .card-att {
+        background-color: #00a8e0;
+      }
+    }
+  }
+}

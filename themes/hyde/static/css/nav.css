@@ -1,0 +1,72 @@
+.nav-container {
+  background-color: #724eef;
+  color: white;
+}
+.nav-container .logo {
+  padding: 16px;
+}
+.nav-container .mobile-menu {
+  display: none;
+}
+.nav-container a.nav-link {
+  color: white;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+.nav-container a.nav-link:hover {
+  font-weight: bolder;
+}
+@media screen and (max-width: 540px) {
+  .nav-container .logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-container .logo-container img {
+    padding: 6px;
+    width: 65px;
+  }
+  .nav-container .mobile-menu {
+    display: unset;
+  }
+  .nav-container .mobile-menu a.icon {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: #724eef !important;
+  }
+  .nav-container .mobile-menu a.icon:hover {
+    color: white;
+    background-color: black;
+    text-decoration: none;
+  }
+  .nav-container a.nav-link {
+    text-align: center;
+    font-weight: 600;
+  }
+  .nav-container a.nav-link:hover {
+    background: black;
+  }
+  .nav-container .nav-buttons-mobile {
+    background-color: #724eef;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    top: 75px;
+    left: 0;
+    height: calc(100vh - 75px);
+    width: 100%;
+    padding-top: 24px;
+  }
+  .nav-container .nav-buttons-mobile .section-container {
+    border: 2px white solid;
+    width: 50%;
+    margin: 0.5rem;
+  }
+  .nav-container .nav-buttons-mobile .login {
+    margin-top: -0.05rem !important;
+  }
+}/*# sourceMappingURL=nav.css.map */

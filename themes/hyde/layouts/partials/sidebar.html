@@ -1,0 +1,38 @@
+<div id="nav-border" class="nav-container">
+  <nav id="nav" class="nav">
+    <div class="logo-container">
+      <a href="/" class="navbar-brand">
+        <img
+          class="img-fluid logo"
+          src="/images/_logo/datadog-logo-v.png"
+          width="1600"
+          height="1600"
+          loading="eager"
+          alt="Datadog Logo"
+        />
+      </a>
+      <div class="mobile-menu pr-3">
+        <a href="javascript:void(0);" class="icon" onclick="toggleNav()">☰</a>
+      </div>
+    </div>
+
+    <div id="nav-mobile" class="nav-buttons-mobile">
+      
+      <div class="d-none d-sm-block pt-4"></div>
+      {{ range sort .Site.Data.menu "order" }}
+      <div class="section-container">
+      <a class="nav-link" href="{{ .URL }}">
+        {{ .name }}
+      </a>
+      </div>
+      {{ end }} 
+      {{ range sort .Site.Data.userMenu "order" }}
+      <div class="section-container">
+      <a class="nav-link mt-5 login" href="{{ .URL }}">
+        {{ .name }}
+      </a>
+      </div>
+      {{ end }}
+    </div>
+  </nav>
+</div>

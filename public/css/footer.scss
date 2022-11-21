@@ -1,0 +1,31 @@
+.footer-container {
+  color: #b6b6b6;
+  background: linear-gradient(180deg, #443e48 0%, #110617 100%);
+
+  & p {
+    margin: 0;
+
+    & a {
+      transition: 0.2s;
+      color: #b6b6b6;
+      text-decoration: none;
+
+      &:hover {
+        color: #724eef;
+      }
+    }
+  }
+
+  & button.footer-cta {
+    color: white;
+    border-color: white;
+    letter-spacing: 1px;
+    font-weight: 600;
+    background-color: #443e48;
+
+    &:hover {
+      background-color: white;
+      color: #632ca6;
+    }
+  }
+}
